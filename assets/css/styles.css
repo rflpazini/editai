@@ -58,9 +58,7 @@ section {
 .second-section {
     height: 350px;
 }
-h2 small {
-    color: #fff ;
-}
+
 
 /*Third section*/
 
@@ -108,9 +106,4 @@ h2 {
 }
 .row h2{
     font-size: 1.5em;
-}
-
-/*header envie seu video*/
-h2 {
-    color: #707070;
 }
