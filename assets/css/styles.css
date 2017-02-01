@@ -115,8 +115,13 @@ h2 {
     padding: 35px 0;
 }
 
+#light-footer {
+    height: 300px
+}
+
 footer {
     padding-top: 35px;
+    
 
 }
 footer ul {

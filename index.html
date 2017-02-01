@@ -61,30 +61,28 @@
                 </div>
                 <div class="row">
                     <div class="col-md-offset-3 col-md-6">
-                        <a href="" class="btn btn-primary btn-lg">Envie um video</a>
+                        <a id="button-scroll" href="#" class="btn btn-primary btn-lg">Envie um video</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="second-section">
+    <!-- <section class="second-section">
         <div class="container">
             <header class="page-header">
                 <h2>E agora? Preciso editar...</h2>
             </header>
             <article class="text-center">
                 <p class="lead">Lógico que não, é só nos gritar :D</p>
-                <!-- <a href="#" class="btn btn-lg btn-default">Edita aí!</a> -->
                 <button type="submit" id="btn-login" class="btn btn-lg btn-primary">Edita aí!!</button>
             </article>
         </div>
-    </section>
+    </section> -->
     <section class="third-section">
         <div class="container">
             <header class="page-header">
                 <h2>Nosso trabalho <br/>
                  <small>você filma, nos editamos ;)</small></h2>
-
             </header>
             <div class="row">
                 <div class="col-md-4 text-center">
@@ -124,7 +122,7 @@
             </div>
         </div>
     </section>
-    <section class="fourth-section">
+    <section id="video" class="fourth-section">
         <div class="container">
             <header class="page-header">
                 <h2>Envie seu vídeo</h2>
@@ -148,37 +146,35 @@
                             <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar</button>
+                        <button type="submit" id="btn-login" class="btn btn-lg btn-primary">Edita aí!!</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <footer>
-        <article class="container">
+        <article id="light-footer" class="container">
             <div class="row">
                 <div class="col-md-4">
                     <img src="assets/images/logo_preto.png" alt="">
                 </div>
-                <div class="col-md-4 text-center">
-                    <p></p>
+                <div class="col-md-4">
+                    <h4>Bla ba bla</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magni error voluptate id officiis odit, perspiciatis debitis architecto accusantium mollitia ipsa, tempora cum eligendi quasi aut nam libero omnis. Laboriosam!</p>
                 </div>
                 <div class="col-md-4">
                     <h4>Fale conosco</h4>
                     <ul>
                         <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i>
-</li>
+                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
                         <li><i class="fa fa-envelope" aria-hidden="true"></i></li>
-
-                       
                     </ul>
                 </div>
             </div>
         </article>
         <article class="red-footer">
             <div class="container">
-                <small class="pull-right">© 2017 Editai. All Rights Reserved.</small>
+                <small class="pull-left">© 2017 Editai. All Rights Reserved.</small>
             </div>
         </article>
     </footer>
@@ -208,7 +204,13 @@
     ga('send', 'pageview');
     </script>
     <!-- AUTH0 API -->
-    <script src="assets/js/app.js">
+    <script src="assets/js/app.js"></script>
+    <script>
+    $("#button-scroll").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#video").offset().top
+        }, 2000);
+    });
     </script>
 </body>
 
