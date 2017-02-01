@@ -2,11 +2,19 @@ var options = {
   language: 'pt-br'
 };
 
+var theme = {
+  theme: {
+    logo: "../assets/images/logo_preto.png",
+    primaryColor: "#bf0202"
+  }
+};
+
 // Initiating our Auth0Lock
 var lock = new Auth0Lock(
   'Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF',
   'editai.auth0.com',
-  options
+  options,
+  theme
 );
 var btn_login = document.getElementById('btn-login');
 
