@@ -63,6 +63,12 @@ section {
     margin-top: 25px;
 }
 
+/*background section*/
+.background .col-md-6 p {
+    font-size: 2.5em;
+}
+
+
 /*Second section*/
 
 .second-section {
