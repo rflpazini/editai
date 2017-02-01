@@ -1,0 +1,61 @@
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+section {
+	padding: 45px 0;
+}
+
+/* -- Site header -- */
+
+.background {
+    background: #ffffff url(../images/background.png) no-repeat center center;
+    height: 600px !important;
+}
+
+.logo-centered {
+    margin: 15% auto;
+    width: 100%;
+    text-align: center;
+}
+
+.logo-centered img {
+    width: 40vw;
+    height: 40vh;
+}
+
+/*Second section*/
+
+.second-section {
+	height: 250px;
+	padding-top: 8%;
+	padding-bottom: 10%
+}
+
+
+/*Third section*/
+
+.third-section {
+	background-color: #404040;
+	color: #fff
+}
+
+.third-section h2 {
+	font-weight: 300
+}
+
+.third-section i {
+	font-size: 1.8em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 1.2em;
+    border: 1px solid #eaeced;
+    background: #ededed;
+    color: #bf0202;
+}
+
+.third-section .row {
+	
+}
