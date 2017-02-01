@@ -1,4 +1,13 @@
-var lock = new Auth0Lock('Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF', 'editai.auth0.com');
+var options = {
+  language: 'pt-br'
+};
+
+// Initiating our Auth0Lock
+var lock = new Auth0Lock(
+  'Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF',
+  'editai.auth0.com',
+  options
+);
 var btn_login = document.getElementById('btn-login');
 
 btn_login.addEventListener('click', function() {
