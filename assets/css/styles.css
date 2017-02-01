@@ -21,6 +21,10 @@ section {
     color: #fff;
 }
 
+.navbar-brand img {
+    width: 100px;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #bf0202 !important;
@@ -42,9 +46,8 @@ section {
 }
 
 .logo-centered {
-    margin: 15% auto;
+    margin: 1% auto;
     width: 100%;
-    text-align: center;
 }
 
 .logo-centered img {
@@ -52,6 +55,13 @@ section {
     height: 40vh;
 }
 
+.logo-centered p {
+    color: #fff;
+}
+
+.logo-centered .btn {
+    margin-top: 25px;
+}
 
 /*Second section*/
 
@@ -97,6 +107,20 @@ h2 {
 .fourth-section p {
     padding-top: 15px;
     padding-bottom: 45px
+}
+
+.red-footer {
+    background-color: #bf0202;
+    color: #fff;
+    padding: 35px 0;
+}
+
+footer {
+    padding-top: 35px;
+}
+
+footer img {
+    width: 120px;
 }
 
 @media (min-width: 768px) {
