@@ -57,5 +57,11 @@ section {
 }
 
 .third-section .row {
-	
+	margin-top: 25px; 
+}
+
+/*Fourth section*/
+
+.fourth-section {
+	background-color: #d9d9d9;
 }
