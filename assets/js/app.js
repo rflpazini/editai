@@ -1,12 +1,12 @@
 var options = {
-  language: 'pt-br'
-};
-
-var theme = {
+  language: 'pt-br',
   theme: {
-    logo: "../assets/images/logo_preto.png",
+    logo: "http://imageshack.com/a/img922/3457/MOs0ty.png",
     primaryColor: "#bf0202"
-  }
+  },
+  languageDictionary: {
+    emailInputPlaceholder: "editaistudio@gmail.com"
+  },
 };
 
 // Initiating our Auth0Lock
@@ -14,7 +14,6 @@ var lock = new Auth0Lock(
   'Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF',
   'editai.auth0.com',
   options,
-  theme
 );
 var btn_login = document.getElementById('btn-login');
 
