@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <script src="https://use.fontawesome.com/90e5e16238.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
 </head>
 
 <body>
@@ -21,8 +22,15 @@
         </div>
     </section>
     <section class="second-section">
-        <div class="container text-center">
-            <a href="#" class="btn btn-lg btn-default">Edita aí!</a>
+        <div class="container">
+            <header class="page-header">
+                <h2>E agora? Preciso editar...</h2>
+            </header>
+            <article class="text-center">
+                <p class="lead">Lógico que não, é só nos gritar :D</p>
+                <!-- <a href="#" class="btn btn-lg btn-default">Edita aí!</a> -->
+                <button type="submit" id="btn-login" class="btn btn-lg btn-default">Edita aí!!</button>
+            </article>
         </div>
     </section>
     <section class="third-section">
@@ -33,35 +41,30 @@
             <div class="row">
                 <div class="col-md-4 text-center">
                     <i class="fa fa-sun-o" aria-hidden="true"></i>
-                    <h2>Correção de brilho</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                    <h2>Ajuste de Iluminação</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
+                    <h2>Correção de brilho e iluminação</h2>
+                    <p>Clareamos ou acrescentamos brilho ao seu vídeo para que você possa assistir com maior qualidade de imagem.</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <i class="fa fa-microphone" aria-hidden="true"></i>
                     <h2>Melhora da qualidade do som</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
+                    <p>A qualidade do som é algo fundamental em um vídeo profissional. Cada palavra deve ser ouvida claramente e sem interferências. Um áudio claro aumenta a compreensão e reduz os contratempos, aproximando os usuários da experiência de um encontro real.</p>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-4 text-center">
                     <i class="fa fa-crop" aria-hidden="true"></i>
                     <h2>Recortes profissionais</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
+                    <p>Uma boa edição de vídeo consiste em decidir que tomadas usar e como uni-las na sequência desejada. O tempo e a ordem dessas tomadas funcionam como uma outra forma de narrativa visual e o ritmo do vídeo é dado principalmente pela edição.</p>
                 </div>
-                <div class="col-md-4 text-center">
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center">
                     <i class="fa fa-desktop" aria-hidden="true"></i>
                     <h2>Inserção de logos e subtítulos</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
+                    <p>Temos uma solução rápida e descomplicada que te oferece aquele serviço audiovisual personalizado que você tanto precisa. Entregamos seu vídeo editado já com todos os ajustes, cortes, logos e subtítulos em até 48 horas.</p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-6 text-center">
                     <i class="fa fa-play" aria-hidden="true"></i>
                     <h2>Renderização</h2>
-                    <p>Mussum Ipsum, cacilds vidis litro abertis. Quem num gosti di mum que vai caçá sua turmis! Detraxit consequat et quo num tendi nada. Pra lá , depois divoltis porris, paradis. Per aumento de cachacis, eu reclamis.</p>
+                    <p>Renderizar é o ato de compilar e obter o produto final de um processamento digital. Isso significa que, toda aquela sequência de imagens que você montou na sua linha do tempo precisa ser condensada em um vídeo.</p>
                 </div>
             </div>
         </div>
@@ -76,9 +79,10 @@
     <section class="fourth-section">
         <div class="container">
             <header class="page-header">
-                <h2>Envie seu vídeo <small>Entraremos em conta- to com a solução ideal para você</small></h2>
+                <h2>Envie seu vídeo</h2>
                 <!-- <p class="lead"> Entraremos em conta- to com a solução ideal para você.</p>	 -->
             </header>
+            <p class="text-center lead">Entraremos em conta- to com a solução ideal para você</p>
             <div class="row">
                 <div class="col-md-6">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sint voluptate quos reiciendis iure eveniet quod odio accusantium at eum, nemo voluptatem quisquam quia perspiciatis odit quis nulla natus, labore.</p>
@@ -97,10 +101,6 @@
                             <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd">
                         </div>
-                        <!-- <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember me</label>
-                        </div> -->
                         <button type="submit" class="btn btn-primary btn-block btn-lg">Enviar</button>
                     </form>
                 </div>
@@ -108,6 +108,8 @@
         </div>
     </section>
     <footer>
+        <div class="container">
+        </div>
     </footer>
     <!-- <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
         <input type="hidden" name="code" value="D95822A799998D1334716F8E54A1A801" />
@@ -117,6 +119,7 @@
     <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     <!-- Analytics -->
     <script>
     (function(i, s, o, g, r, a, m) {
@@ -133,6 +136,28 @@
 
     ga('create', 'UA-91238848-1', 'auto');
     ga('send', 'pageview');
+    </script>
+
+    <!-- AUTH0 API -->
+    <script>
+    var lock = new Auth0Lock('Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF', 'editai.auth0.com');
+    var btn_login = document.getElementById('btn-login');
+
+    btn_login.addEventListener('click', function() {
+        lock.show();
+    });
+
+    lock.on("authenticated", function(authResult) {
+        lock.getProfile(authResult.idToken, function(error, profile) {
+            if (error) {
+                // Handle error
+                return;
+            }
+            localStorage.setItem('id_token', authResult.idToken);
+            // Display user information
+            show_profile_info(profile);
+        });
+    });
     </script>
 </body>
 

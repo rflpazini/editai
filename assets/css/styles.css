@@ -7,6 +7,18 @@ section {
 	padding: 45px 0;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #bf0202 !important;
+    border-color: #bf0202 !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #a10000;
+    border-color: #a10000;
+}
+
 /* -- Site header -- */
 
 .background {
@@ -28,9 +40,7 @@ section {
 /*Second section*/
 
 .second-section {
-	height: 250px;
-	padding-top: 8%;
-	padding-bottom: 10%
+	height: 350px;
 }
 
 
@@ -38,10 +48,11 @@ section {
 
 .third-section {
 	background-color: #404040;
-	color: #fff
+	color: #fff;
+	padding-bottom: 85px;
 }
 
-.third-section h2 {
+h2 {
 	font-weight: 300
 }
 
@@ -64,4 +75,9 @@ section {
 
 .fourth-section {
 	background-color: #d9d9d9;
+}
+
+.fourth-section p {
+	padding-top: 15px;
+	padding-bottom: 45px
 }
