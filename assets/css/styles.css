@@ -4,7 +4,21 @@ img {
 }
 
 section {
-	padding: 45px 0;
+    padding: 45px 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+    color: #fff !important;
+}
+
+.navbar-default {
+    background-color: #bf0202;
+    border-color: #bf0202;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 
 .btn-primary {
@@ -18,6 +32,7 @@ section {
     background-color: #a10000;
     border-color: #a10000;
 }
+
 
 /* -- Site header -- */
 
@@ -37,27 +52,28 @@ section {
     height: 40vh;
 }
 
+
 /*Second section*/
 
 .second-section {
-	height: 350px;
+    height: 350px;
 }
 
 
 /*Third section*/
 
 .third-section {
-	background-color: #404040;
-	color: #fff;
-	padding-bottom: 85px;
+    background-color: #404040;
+    color: #fff;
+    padding-bottom: 85px;
 }
 
 h2 {
-	font-weight: 300
+    font-weight: 300
 }
 
 .third-section i {
-	font-size: 1.8em;
+    font-size: 1.8em;
     width: 2em;
     line-height: 2em;
     text-align: center;
@@ -68,16 +84,23 @@ h2 {
 }
 
 .third-section .row {
-	margin-top: 25px; 
+    margin-top: 25px;
 }
+
 
 /*Fourth section*/
 
 .fourth-section {
-	background-color: #d9d9d9;
+    background-color: #d9d9d9;
 }
 
 .fourth-section p {
-	padding-top: 15px;
-	padding-bottom: 45px
+    padding-top: 15px;
+    padding-bottom: 45px
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0;
+    }
 }
