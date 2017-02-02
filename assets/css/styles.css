@@ -138,6 +138,9 @@ footer li {
 footer img {
     width: 120px;
 }
+footer .footer-contato {
+    font-size: 1.2em;
+}
 
 @media (min-width: 768px) {
     .navbar {
