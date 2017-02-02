@@ -34,14 +34,18 @@
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                  <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-<form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
-<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-<input type="hidden" name="code" value="E379DDEF9898E17DD4608F88984C095E" />
-<input type="hidden" name="iot" value="button" />
-<input type="image" src="assets/images/pagamentov4.png" name="submit"/>
-</form>
-<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+<button type="button" class="btn btn-primary btn-lg">
+  <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+  <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+  <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+  <input type="hidden" name="code" value="E379DDEF9898E17DD4608F88984C095E" />
+  <input type="hidden" name="iot" value="button" />
+  <input type="image" src="assets/images/pagamentov2.png" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+  </form>
+  <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+  <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+</button>                  <!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+
 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
                 <li><a href="#">Entrar</a></li>
             </ul>
