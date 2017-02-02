@@ -137,6 +137,14 @@ footer li {
     padding-right: 8px;
 }
 
+footer i {
+  color: #bf0202;
+}
+
+footer j {
+  color: rgb(59, 89, 152);
+}
+
 footer img {
     width: 120px;
 }
@@ -151,4 +159,13 @@ footer .footer-contato {
 }
 .third-section .text-center h2 {
     font-size: 1.7em;
+}
+
+footer h5{
+  padding-top: 12px;
+  color:#000;
+}
+
+footer .modal-title {
+  color:#bf0202;
 }
