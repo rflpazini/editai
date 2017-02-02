@@ -11,6 +11,41 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <script src="https://use.fontawesome.com/90e5e16238.js"></script>
     <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+    <script>
+    var options = {
+        language: 'pt-br',
+        theme: {
+            logo: "http://imageshack.com/a/img922/3457/MOs0ty.png",
+            primaryColor: "#bf0202"
+        },
+        languageDictionary: {
+            emailInputPlaceholder: "editaistudio@gmail.com"
+        },
+    };
+
+    // Initiating our Auth0Lock
+    var lock = new Auth0Lock(
+        'Sbu2Ngdr1g2D3aFBKdojLQGUo2patuqF',
+        'editai.auth0.com',
+        options,
+    );
+    var btn_login = document.getElementById('btn-login');
+    btn_login.addEventListener('click', function() {
+        lock.show();
+    });
+
+    lock.on("authenticated", function(authResult) {
+        lock.getProfile(authResult.idToken, function(error, profile) {
+            if (error) {
+                // Handle error
+                return;
+            }
+            localStorage.setItem('id_token', authResult.idToken);
+            // Display user information
+            show_profile_info(profile);
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -31,17 +66,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#">Entrar</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -83,7 +108,6 @@
             <header class="page-header">
                 <h2>Nosso trabalho <br/>
                  <small>você filma, nós editamos ;)</small></h2>
-
             </header>
             <div class="row">
                 <div class="col-md-4 text-center">
@@ -111,7 +135,7 @@
             </div>
         </div>
     </section>
-  <!--  <section class="video-section">
+    <!--  <section class="video-section">
         <div class="container">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ua5mwAlI0Sc"></iframe>
@@ -153,11 +177,15 @@
                     <img src="assets/images/logo_pretov3.png" alt="">
                     <ul class="footer-contato">
                         <h3>Contato</h3>
-                        <li><p>WhatsApp:<br/> (11) 95906-0141 <br/> (11) 96396-3747</p></li>
-                        <li><p>Email: editaistudio@gmail.com</p></li>
+                        <li>
+                            <p>WhatsApp:
+                                <br/> (11) 95906-0141
+                                <br/> (11) 96396-3747</p>
+                        </li>
+                        <li>
+                            <p>Email: editaistudio@gmail.com</p>
+                        </li>
                     </ul>
-
-
                 </div>
                 <div class="col-md-4 text-center">
                     <p></p>
@@ -165,12 +193,13 @@
                 <div class="col-md-4">
                     <h4>Fale conosco</h4>
                     <ul>
+                        <li><a href="https://www.facebook.com/editaAi" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
                         <li><a href="https://wwww.facebook.com/editaAi"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-</li>
+                        </li>
                         <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-
-
                     </ul>
                 </div>
             </div>
@@ -191,6 +220,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Analytics -->
     <script>
+    $("#button-scroll").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#video").offset().top
+        }, 2000);
+    });
+
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function() {
@@ -206,9 +241,9 @@
     ga('create', 'UA-91238848-1', 'auto');
     ga('send', 'pageview');
     </script>
-    <!-- AUTH0 API -->
-    <script src="assets/js/app.js">
-    </script>
+    < !-- AUTH0 API -->
+        <script src="assets/js/app.js">
+        </script>
 </body>
 
 </html>
