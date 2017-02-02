@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Você produz muito conteúdo em vídeo, mas não sabe como editar todo esse material? Entre em contato conosco. Nascemos para descomplicar a sua vida. Fazemos edição profissional de vídeos em até 48h, com a qualidade que você precisa.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Editaí Upload</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -87,42 +88,56 @@
                             </div>
                         </section>
                     </div>
+                    <div ng-if="fileID" class="testing">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Seu vídeo foi enviado</h3>
+                            </div>
+                            <div class="panel-body">
+                                Logo você receberá o vídeo editado em seu email...
+
+                                <br>
+                                Enquanto isso, você já pode ir gravando outros :D
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
-        <!-- JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="assets/js/vendor/jquery.ui.widget.js"></script>
-        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-        <script src="assets/js/jquery.iframe-transport.js"></script>
-        <script src="assets/js/jquery.fileupload.js"></script>
-        <script src="assets/js/jquery.fileupload-process.js"></script>
-        <script src="assets/js/jquery.fileupload-image.js"></script>
-        <script src="assets/js/jquery.fileupload-audio.js"></script>
-        <script src="assets/js/jquery.fileupload-video.js"></script>
-        <script src="assets/js/jquery.fileupload-validate.js"></script>
-        <script src="assets/js/jquery.fileupload-angular.js"></script>
-        <script src="assets/js/mainController.js"></script>
+        </section>
+    </div>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="assets/js/vendor/jquery.ui.widget.js"></script>
+    <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+    <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <script src="assets/js/jquery.iframe-transport.js"></script>
+    <script src="assets/js/jquery.fileupload.js"></script>
+    <script src="assets/js/jquery.fileupload-process.js"></script>
+    <script src="assets/js/jquery.fileupload-image.js"></script>
+    <script src="assets/js/jquery.fileupload-audio.js"></script>
+    <script src="assets/js/jquery.fileupload-video.js"></script>
+    <script src="assets/js/jquery.fileupload-validate.js"></script>
+    <script src="assets/js/jquery.fileupload-angular.js"></script>
+    <script src="assets/js/mainController.js"></script>
+    <!-- Analytics -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        <!-- Analytics -->
-        <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-91238848-1', 'auto');
-        ga('send', 'pageview');
-        </script>
+    ga('create', 'UA-91238848-1', 'auto');
+    ga('send', 'pageview');
+    </script>
 </body>
 
 </html>
