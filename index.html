@@ -123,7 +123,7 @@
                     <form action="javascript:void(save())" method="post">
                         <div class="form-group">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control" id="name" required>
+                            <input type="text" class="form-control" id="name" required="true">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -189,13 +189,20 @@
         var email = $("#email").val();
         var phone = $("#phone").val();
 
-        $.post("https://sheetsu.com/apis/v1.0/534b60eb2208", {
-            Name: name,
-            Email: email,
-            Phone: phone
-        });
+        console.log(name);
 
-        swal("Cadastro feito com sucesso!", "Em breve entraremos em contato com você", "success");
+        if (name != "" && email != "" && phone != "") {
+            $.post("https://sheetsu.com/apis/v1.0/534b60eb2208", {
+                Name: name,
+                Email: email,
+                Phone: phone
+            });
+
+            swal("Cadastro feito com sucesso!", "Em breve entraremos em contato com você", "success");
+        } else {
+        	swal("Ops!", "Preencha todas as informações", "warning");
+        }
+
     }
 
     // Analytics
