@@ -63,6 +63,12 @@ section {
     margin-top: 25px;
 }
 
+/*background section*/
+.background .col-md-6 p {
+    font-size: 2.5em;
+}
+
+
 /*Second section*/
 
 .second-section {
@@ -115,13 +121,12 @@ h2 {
     padding: 35px 0;
 }
 
-#light-footer {
-    height: 300px
-}
-
 footer {
     padding-top: 35px;
-    
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 }
 footer ul {
@@ -136,6 +141,9 @@ footer li {
 
 footer img {
     width: 120px;
+}
+footer .footer-contato {
+    font-size: 1.2em;
 }
 
 @media (min-width: 768px) {
