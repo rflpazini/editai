@@ -88,16 +88,21 @@
                             </div>
                         </section>
                     </div>
-                    <div ng-if="fileID" class="testing">
+                    <div ng-if="fileID">
                         <div class="panel panel-success">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Seu vídeo foi enviado</h3>
                             </div>
                             <div class="panel-body">
-                                Logo você receberá o vídeo editado em seu email...
-
-                                <br>
-                                Enquanto isso, você já pode ir gravando outros :D
+                                <p>Estamos quase prontos para começar a editar seu vídeo.
+                                    <br> Mas antes precisamos que você efetue o pagamento para que o prazo de 48h comece a valer</p>
+                                <section>
+                                    <form style="z-index: 1;" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+                                        <input type="hidden" name="code" value="E379DDEF9898E17DD4608F88984C095E" />
+                                        <input type="hidden" name="iot" value="button" />
+                                        <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                                    </form>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -106,6 +111,7 @@
         </section>
     </div>
     <!-- JS -->
+    <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="bower_components/angular/angular.min.js"></script>

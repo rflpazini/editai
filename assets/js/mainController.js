@@ -14,8 +14,6 @@ var myApp = angular.module('editai-upload', ['blueimp.fileupload'])
     	apiPasswordParam = '?api_password=',
     	token = 'f3f4b2f8b313c1de29f00263c58940c32f2c4952072e38f8d53aa920be4b1023';
 
-    
-
     app.controller('UploadController', ['$scope', '$http', '$filter', '$window',
         function($scope, $http) {
             $scope.added = false;
