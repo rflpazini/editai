@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="editai-upload">
+
 <head>
-	    <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Editaí Upload</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -10,29 +11,118 @@
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <script src="https://use.fontawesome.com/90e5e16238.js"></script>
 </head>
+
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="assets/images/logo_pretov3.png">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Entrar</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div id="main" class="container">
+        <section id="upload" class="row">
+            <div class="col-md-12 text-center">
+                <form data-file-upload="options" method="POST" ng-controller="UploadController" enctype="multipart/form-data" class="form-view">
+                    <div id="form">
+                        <header class="form-header" ng-hide="added">
+                            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                            <p class="lead">Envie seu video para nós</p>
+                        </header>
+                        <section class="video-selected load">
+                            <div class="row" ng-repeat="file in queue" ng-class="{'processing': file.$processing()}">
+                                <div ng-switch data-on="!!file.thumbnailUrl">
+                                    <i class="fa fa-times" aria-hidden="true" ng-click="cancel()"></i>
+                                    <div class="preview" ng-switch-when="true">
+                                        <a ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img ng-src="{{file.thumbnailUrl}}" alt=""></a>
+                                    </div>
+                                    <div class="preview" ng-switch-default data-file-upload-preview="file"></div>
+                                </div>
+                                <div>
+                                    <p class="name" ng-switch data-on="!!file.url">
+                                        <span ng-switch-when="true" ng-switch data-on="!!file.thumbnailUrl">
+	                            		<a ng-switch-when="true" ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery>{{file.name}}</a>
+	                            		<a ng-switch-default ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">{{file.name}}</a>
+                        			</span>
+                                        <span ng-switch-default><small>File name: </small>{{file.name}}</span>
+                                    </p>
+                                    <div ng-show="file.error" class="alert alert-danger absolute" role="alert">{{file.error}}</div>
+                                </div>
+                                <div>
+                                    <p class="size">{{file.size | formatFileSize}}</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <span class="btn btn-primary btn-lg addfile" ng-class="{disabled: disabled}" ng-hide="added">
+	                    <i class="glyphicon glyphicon-plus"></i>
+	                    <span>Selecionar vídeo</span>
+                            <input type="file" name="files[]" ng-disabled="disabled">
+                            </span>
+                            <button class="btn btn-default btn-lg" type="submit" ng-click="submit()" ng-show="added">
+                                <span class="glyphicon glyphicon-cloud-upload"></span>Enviar vídeo
+                            </button>
+                            <div class="fade" data-ng-class="{in: active()}">
+                                <div class="progress progress-striped active" data-file-upload-progress="progress()">
+                                    <div class="progress-bar progress-bar-danger" data-ng-style="{width: num + '%'}"></div>
+                                </div>
+                                <div class="progress-extended">&nbsp;</div>
+                            </div>
+                        </section>
+                    </div>
+                </form>
+            </div>
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="assets/js/vendor/jquery.ui.widget.js"></script>
+        <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+        <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+        <script src="assets/js/jquery.iframe-transport.js"></script>
+        <script src="assets/js/jquery.fileupload.js"></script>
+        <script src="assets/js/jquery.fileupload-process.js"></script>
+        <script src="assets/js/jquery.fileupload-image.js"></script>
+        <script src="assets/js/jquery.fileupload-audio.js"></script>
+        <script src="assets/js/jquery.fileupload-video.js"></script>
+        <script src="assets/js/jquery.fileupload-validate.js"></script>
+        <script src="assets/js/jquery.fileupload-angular.js"></script>
+        <script src="assets/js/mainController.js"></script>
 
+        <!-- Analytics -->
+        <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-	<!-- JS -->
-	<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- Analytics -->
-    <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-91238848-1', 'auto');
-    ga('send', 'pageview');
-    </script>
+        ga('create', 'UA-91238848-1', 'auto');
+        ga('send', 'pageview');
+        </script>
 </body>
+
 </html>

@@ -1,0 +1,21 @@
+{
+  "name": "editai",
+  "homepage": "https://github.com/rflpazini/editai",
+  "authors": [
+    "Rafael Pazini <rflpazini@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "keywords": [
+    "studio",
+    "editai"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
