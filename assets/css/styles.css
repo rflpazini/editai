@@ -120,15 +120,13 @@ h2 {
     color: #fff;
     padding: 35px 0;
 }
-
+#light-footer {
+    /*height: 150px;*/
+}
 footer {
     padding-top: 35px;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
-
 }
+
 footer ul {
     list-style: none;
     font-size: 2em;
