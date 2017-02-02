@@ -5,7 +5,8 @@ var options = {
     primaryColor: "#bf0202"
   },
   languageDictionary: {
-    emailInputPlaceholder: "editaistudio@gmail.com"
+    emailInputPlaceholder: "editaistudio@gmail.com",
+    title: " "
   },
 };
 
