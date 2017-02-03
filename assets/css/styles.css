@@ -244,3 +244,22 @@ footer .modal-title {
 .progress .progress-extended {
     margin-top: 5px;
 }
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size img
+{
+    font-size: 87px;
+}
