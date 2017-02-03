@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
             } else {
                 localStorage.setItem('id_token', authResult.idToken);
                 localStorage.setItem('profile', JSON.stringify(profile));
-                window.location.href = "/video-upload.html";
+                window.location.href = "/console.html";
                 show_profile_info(profile);
             }
 
@@ -55,7 +55,8 @@ window.addEventListener('load', function() {
         if (avatar) {
             avatar.src = profile.picture;
             avatar.style.display = "block";
-            document.getElementById('complete-name').textContent = profile.name;
+            document.getElementById('complete-name').textContent = profile.nickname;
+            document.getElementById('email').textContent = profile.email;
             document.getElementById('nickname').textContent = profile.nickname;
         }
 
@@ -72,8 +73,6 @@ window.addEventListener('load', function() {
         var id_token = localStorage.getItem('id_token');
         var current_location = window.location.pathname;
 
-        console.log(current_location);
-
         if (id_token) {
             var profile = JSON.parse(localStorage.getItem('profile'));
 
@@ -81,8 +80,11 @@ window.addEventListener('load', function() {
                 case "/video-upload.html":
                     retrieve_profile();
                     break;
+                case "/console.html":
+                    retrieve_profile();
+                    break;
                 case "/":
-                    window.location.href='/video-upload.html';
+                    window.location.href = '/console.html';
                     break;
             };
 

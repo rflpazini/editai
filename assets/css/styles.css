@@ -245,6 +245,7 @@ footer .modal-title {
     margin-top: 5px;
 }
 
+/*Navbar user*/
 .navbar-login
 {
     width: 305px;
@@ -262,4 +263,9 @@ footer .modal-title {
 .icon-size img
 {
     font-size: 87px;
+}
+
+#complete-name ,
+#email {
+    color: #000;
 }
