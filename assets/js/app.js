@@ -1,7 +1,13 @@
-// Initiating our Auth0Lock
 window.addEventListener('load', function() {
     var lock = new Auth0Lock('DwpE477F4CL4zEP6Kdj5MO6KS0fIPp6x', 'editai.auth0.com');
     var btn_login = document.getElementById('bt-login');
+    var btn_logout = document.getElementById('bt-logout');
+
+    if (btn_logout) {
+        btn_logout.addEventListener('click', function() {
+            logout();
+        });
+    }
 
     if (btn_login) {
         btn_login.addEventListener('click', function() {
@@ -36,26 +42,12 @@ window.addEventListener('load', function() {
             } else {
                 localStorage.setItem('id_token', authResult.idToken);
                 localStorage.setItem('profile', JSON.stringify(profile));
+                window.location.href = "/video-upload.html";
                 show_profile_info(profile);
             }
 
         });
     });
-
-    var retrieve_profile = function() {
-        var id_token = localStorage.getItem('id_token');
-        if (id_token) {
-            lock.getProfile(id_token, function(err, profile) {
-                if (err) {
-                    return alert('There was an error getting the profile: ' + err.message);
-                } else {
-                    show_profile_info(profile);    
-                }
-                
-
-            });
-        }
-    };
 
     var show_profile_info = function(profile) {
         var avatar = document.getElementById('avatar');
@@ -63,7 +55,7 @@ window.addEventListener('load', function() {
         if (avatar) {
             avatar.src = profile.picture;
             avatar.style.display = "block";
-            document.getElementById('name').textContent = profile.name;
+            document.getElementById('complete-name').textContent = profile.name;
             document.getElementById('nickname').textContent = profile.nickname;
         }
 
@@ -73,18 +65,24 @@ window.addEventListener('load', function() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
         window.location.href = "/";
+        document.location.href = "/";
     };
 
     var routes = function() {
         var id_token = localStorage.getItem('id_token');
         var current_location = window.location.pathname;
 
+        console.log(current_location);
+
         if (id_token) {
             var profile = JSON.parse(localStorage.getItem('profile'));
 
             switch (current_location) {
-                case "/video-upload":
+                case "/video-upload.html":
                     retrieve_profile();
+                    break;
+                case "/":
+                    window.location.href='/video-upload.html';
                     break;
             };
 
@@ -94,5 +92,19 @@ window.addEventListener('load', function() {
             }
         }
     };
+
+    var retrieve_profile = function() {
+        var id_token = localStorage.getItem('id_token');
+        if (id_token) {
+            lock.getProfile(id_token, function(err, profile) {
+                if (err) {
+                    return alert('There was an error getting the profile: ' + err.message);
+                } else {
+                    show_profile_info(profile);
+                }
+            });
+        }
+    };
+
     routes();
 });
