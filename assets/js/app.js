@@ -3,6 +3,11 @@ window.addEventListener('load', function() {
     var btn_login = document.getElementById('bt-login');
     var btn_logout = document.getElementById('bt-logout');
 
+    var init = function() {
+        firebase.initializeApp(config);
+        routes();
+    }
+
     if (btn_logout) {
         btn_logout.addEventListener('click', function() {
             logout();
@@ -13,7 +18,6 @@ window.addEventListener('load', function() {
         btn_login.addEventListener('click', function() {
             var id_token = localStorage.getItem('id_token');
             if (id_token) {
-                window.location.href = "/video-upload.html";
                 routes();
             } else {
                 lock.show({
@@ -42,6 +46,8 @@ window.addEventListener('load', function() {
             } else {
                 localStorage.setItem('id_token', authResult.idToken);
                 localStorage.setItem('profile', JSON.stringify(profile));
+                // writeNewUser(profile.nickname, profile.email, profile.user_id);
+
                 window.location.href = "/console.html";
                 show_profile_info(profile);
             }
@@ -82,6 +88,7 @@ window.addEventListener('load', function() {
                     break;
                 case "/console.html":
                     retrieve_profile();
+                    addNewProject('Teste', 'djaklsjdkalsjdklasjdlksjdkljdlkasjdlksjdlkasjd', profile.user_id, profile.email);
                     break;
                 case "/":
                     window.location.href = '/console.html';
@@ -108,5 +115,38 @@ window.addEventListener('load', function() {
         }
     };
 
-    routes();
+    var config = {
+        apiKey: "AIzaSyA9ouh_oaGmBpGsjc4wdJAZrQeG_1diLm0",
+        authDomain: "editai-base.firebaseapp.com",
+        databaseURL: "https://editai-base.firebaseio.com",
+        storageBucket: "editai-base.appspot.com",
+        messagingSenderId: "861660898535"
+    };
+
+    var writeNewUser = function(email, name, id) {
+        firebase.database().ref().child('users').child(id).set({
+            username: name,
+            email: email,
+            uId: id
+        });
+    };
+
+    var addNewProject = function(title, description, user, email) {
+        var newPostKey = firebase.database().ref().child('projects').child(user).push().key;
+
+        var postData = {
+            title: title,
+            desc: description,
+            user_id: user,
+            user_email: email
+        };
+
+        firebase.database().ref('projects/' + user + '/' + newPostKey).set(postData);
+    };
+
+    var retrieveProjects = function() {
+        
+    }
+
+    init();
 });

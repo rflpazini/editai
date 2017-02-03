@@ -75,73 +75,88 @@
     </nav>
     <div id="main" class="container">
         <section id="upload" class="row">
-            <div class="col-md-12 text-center">
-                <form data-file-upload="options" method="POST" ng-controller="UploadController" enctype="multipart/form-data" class="form-view">
-                    <div id="form">
-                        <header class="form-header" ng-hide="added">
-                            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                            <p class="lead">Envie seu video para nós</p>
-                        </header>
-                        <section class="video-selected load">
-                            <div class="row" ng-repeat="file in queue" ng-class="{'processing': file.$processing()}">
-                                <div ng-switch data-on="!!file.thumbnailUrl">
-                                    <i class="fa fa-times" aria-hidden="true" ng-click="cancel()"></i>
-                                    <div class="preview" ng-switch-when="true">
-                                        <a ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img ng-src="{{file.thumbnailUrl}}" alt=""></a>
+            <div class="col-md-12">
+                <article class="imputs-desc">
+                    <h2>{{yourProjectName}} <small>Novo projeto</small></h2>
+                    <p>Insira algumas informações sobre seu projeto</p>
+                    <form>
+                    	<div class="form-group">
+                    		<input class="form-control" type="text" ng-model="yourProjectName" placeholder="Coloque um nome para o projeto"/>
+                    	</div>
+                        <div class="form-group">
+                            <label for="comment">Descrição do projeto</label>
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+                    </form>
+                </article>
+                <article class=" text-center">
+                    <form data-file-upload="options" method="POST" ng-controller="UploadController" enctype="multipart/form-data" class="form-view">
+                        <div id="form">
+                            <header class="form-header" ng-hide="added">
+                                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                <p class="lead">Envie seu video para nós</p>
+                            </header>
+                            <section class="video-selected load">
+                                <div class="row" ng-repeat="file in queue" ng-class="{'processing': file.$processing()}">
+                                    <div ng-switch data-on="!!file.thumbnailUrl">
+                                        <i class="fa fa-times" aria-hidden="true" ng-click="cancel()"></i>
+                                        <div class="preview" ng-switch-when="true">
+                                            <a ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img ng-src="{{file.thumbnailUrl}}" alt=""></a>
+                                        </div>
+                                        <div class="preview" ng-switch-default data-file-upload-preview="file"></div>
                                     </div>
-                                    <div class="preview" ng-switch-default data-file-upload-preview="file"></div>
-                                </div>
-                                <div>
-                                    <p class="name" ng-switch data-on="!!file.url">
-                                        <span ng-switch-when="true" ng-switch data-on="!!file.thumbnailUrl">
+                                    <div>
+                                        <p class="name" ng-switch data-on="!!file.url">
+                                            <span ng-switch-when="true" ng-switch data-on="!!file.thumbnailUrl">
 	                            		<a ng-switch-when="true" ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery>{{file.name}}</a>
 	                            		<a ng-switch-default ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">{{file.name}}</a>
                         			</span>
-                                        <span ng-switch-default><small>File name: </small>{{file.name}}</span>
-                                    </p>
-                                    <div ng-show="file.error" class="alert alert-danger absolute" role="alert">{{file.error}}</div>
+                                            <span ng-switch-default><small>File name: </small>{{file.name}}</span>
+                                        </p>
+                                        <div ng-show="file.error" class="alert alert-danger absolute" role="alert">{{file.error}}</div>
+                                    </div>
+                                    <div>
+                                        <p class="size">{{file.size | formatFileSize}}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="size">{{file.size | formatFileSize}}</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section>
-                            <span class="btn btn-primary btn-lg addfile" ng-class="{disabled: disabled}" ng-hide="added">
+                            </section>
+                            <section>
+                                <span class="btn btn-primary btn-lg addfile" ng-class="{disabled: disabled}" ng-hide="added">
 	                    <i class="glyphicon glyphicon-plus"></i>
 	                    <span>Selecionar vídeo</span>
-                            <input type="file" name="files[]" ng-disabled="disabled">
-                            </span>
-                            <button class="btn btn-default btn-lg" type="submit" ng-click="submit()" ng-show="added">
-                                <span class="glyphicon glyphicon-cloud-upload"></span>Enviar vídeo
-                            </button>
-                            <div class="fade" data-ng-class="{in: active()}">
-                                <div class="progress progress-striped active" data-file-upload-progress="progress()">
-                                    <div class="progress-bar progress-bar-danger" data-ng-style="{width: num + '%'}"></div>
+                                <input type="file" name="files[]" ng-disabled="disabled">
+                                </span>
+                                <button class="btn btn-default btn-lg" type="submit" ng-click="submit()" ng-show="added">
+                                    <span class="glyphicon glyphicon-cloud-upload"></span>Enviar vídeo
+                                </button>
+                                <div class="fade" data-ng-class="{in: active()}">
+                                    <div class="progress progress-striped active" data-file-upload-progress="progress()">
+                                        <div class="progress-bar progress-bar-danger" data-ng-style="{width: num + '%'}"></div>
+                                    </div>
+                                    <div class="progress-extended">&nbsp;</div>
                                 </div>
-                                <div class="progress-extended">&nbsp;</div>
-                            </div>
-                        </section>
-                    </div>
-                    <div ng-if="fileID">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Seu vídeo foi enviado</h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>Estamos quase prontos para começar a editar seu vídeo.
-                                    <br> Mas antes precisamos que você efetue o pagamento para que o prazo de 48h comece a valer</p>
-                                <section>
-                                    <form style="z-index: 1;" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
-                                        <input type="hidden" name="code" value="E379DDEF9898E17DD4608F88984C095E" />
-                                        <input type="hidden" name="iot" value="button" />
-                                        <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-                                    </form>
-                                </section>
+                            </section>
+                        </div>
+                        <div ng-if="fileID">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Seu vídeo foi enviado</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Estamos quase prontos para começar a editar seu vídeo.
+                                        <br> Mas antes precisamos que você efetue o pagamento para que o prazo de 48h comece a valer</p>
+                                    <section>
+                                        <form style="z-index: 1;" action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post" onsubmit="PagSeguroLightbox(this); return false;">
+                                            <input type="hidden" name="code" value="E379DDEF9898E17DD4608F88984C095E" />
+                                            <input type="hidden" name="iot" value="button" />
+                                            <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                                        </form>
+                                    </section>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </article>
             </div>
         </section>
     </div>
@@ -161,6 +176,7 @@
     <script src="assets/js/jquery.fileupload-video.js"></script>
     <script src="assets/js/jquery.fileupload-validate.js"></script>
     <script src="assets/js/jquery.fileupload-angular.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script src="assets/js/mainController.js"></script>
     <!-- Analytics -->

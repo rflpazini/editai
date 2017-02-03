@@ -205,6 +205,7 @@
     <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script type="text/javascript">
     $("#button-scroll").click(function() {
@@ -224,12 +225,10 @@
                 Email: email,
                 Phone: phone
             });
-
             swal("Cadastro feito com sucesso!", "Em breve entraremos em contato com você", "success");
         } else {
             swal("Ops!", "Preencha todas as informações", "warning");
         }
-
     }
 
     // Analytics
