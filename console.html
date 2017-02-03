@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta property="og:description" content="Você produz muito conteúdo em vídeo, mas não sabe como editar todo esse material? Entre em contato conosco. Nascemos para descomplicar a sua vida. Fazemos edição profissional de vídeos em até 48h, com a qualidade que você precisa." />
+    <meta name="description" content="Você produz muito conteúdo em vídeo, mas não sabe como editar todo esse material? Entre em contato conosco. Nascemos para descomplicar a sua vida. Fazemos edição profissional de vídeos em até 48h, com a qualidade que você precisa.">
+    <meta property="og:title" content="Editaí" />
+    <meta property="og:site_name" content="Editaí" />
+    <meta property="og:image" content="https://dl.dropboxusercontent.com/u/104095732/16388036_1703660259963949_4229443957888103359_n.jpg">
+    <title>Editaí</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://use.fontawesome.com/90e5e16238.js"></script>
+    <script src="assets/sweet-alert/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/sweet-alert/sweetalert.css">
+    <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="assets/images/logo_branco.png">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <strong id="nickname"></strong>
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="navbar-login">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p class="text-center">
+                                                <span class="glyphicon glyphicon-user icon-size">
+                                                  <img id="avatar" alt="">
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p class="text-left">
+                                                <strong id="complete-name"></strong>
+                                            </p>
+                                            <p class="text-left">
+                                                <div id="email"></div>
+                                            </p>
+                                            <p class="text-left">
+                                                <a href="#" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider navbar-login-session-bg"></li>
+                            <li><a href="#" id="bt-logout">Sair<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- /Header -->
+    <!-- Main -->
+    <div class="container">
+        <!-- upper section -->
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- left -->
+                <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
+                <hr>
+                <ul class="nav nav-stacked">
+                    <li><a href="video-upload.html"><i class="glyphicon glyphicon-plus"></i> Criar novo projeto</a></li>
+                    <li><a href=""><i class="glyphicon glyphicon-usd"></i> Pagamentos</a></li>
+                </ul>
+                <hr>
+            </div>
+            <!-- /span-3 -->
+            <div class="col-sm-9">
+                <!-- column 2 -->
+                <h3><i class="glyphicon glyphicon-dashboard"></i> Editaí console</h3>
+                <hr>
+                <div class="row">
+                    <!-- center left-->
+                    <div class="col-md-12">
+                        <!-- <div class="well">Inbox Messages <span class="badge pull-right">3</span></div> -->
+                        <!-- <hr> -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Processo em andamento</h4></div>
+                            <div class="panel-body">
+                                <small>Complete</small>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
+                                        <span class="sr-only">72% Complete</span>
+                                    </div>
+                                </div>
+                                <small>In Progress</small>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <span class="sr-only">20% Complete</span>
+                                    </div>
+                                </div>
+                                <small>At Risk</small>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/panel-body-->
+                        </div>
+                        <!--/panel-->
+                    </div>
+                    <!--/col-->
+                </div>
+                <!--/row-->
+            </div>
+            <!--/col-span-9-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+    <!-- /Main -->
+    <!-- JS -->
+    <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="assets/js/vendor/jquery.ui.widget.js"></script>
+    <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+    <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <script src="assets/js/jquery.iframe-transport.js"></script>
+    <script src="assets/js/jquery.fileupload.js"></script>
+    <script src="assets/js/jquery.fileupload-process.js"></script>
+    <script src="assets/js/jquery.fileupload-image.js"></script>
+    <script src="assets/js/jquery.fileupload-audio.js"></script>
+    <script src="assets/js/jquery.fileupload-video.js"></script>
+    <script src="assets/js/jquery.fileupload-validate.js"></script>
+    <script src="assets/js/jquery.fileupload-angular.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <!-- Analytics -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-91238848-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
