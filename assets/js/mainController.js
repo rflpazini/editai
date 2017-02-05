@@ -27,7 +27,6 @@ var myApp = angular.module('editai-upload', ['blueimp.fileupload'])
             $scope.$on('fileuploaddone', function(event, fileResult) {
                 $("#form").addClass("load");
                 $scope.fileID = fileResult.result.hashed_id;
-
                 $("#pay").removeClass("load");
                 localStorage.removeItem('proj-name');
                 localStorage.removeItem('proj-comment');
@@ -40,6 +39,7 @@ var myApp = angular.module('editai-upload', ['blueimp.fileupload'])
                 $scope.added = true;
                 localStorage.setItem('proj-name', $("#proj-name").val());
                 localStorage.setItem('proj-comment', $("#proj-comment").val());
+                
             });
 
             $scope.$on('fileuploadfail', function(eventm, argument) {

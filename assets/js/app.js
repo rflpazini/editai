@@ -3,7 +3,15 @@ window.addEventListener('load', function() {
     var btn_login = document.getElementById('bt-login');
     var btn_logout = document.getElementById('bt-logout');
 
-    var init = function() {
+    var config = {
+        apiKey: "AIzaSyA9ouh_oaGmBpGsjc4wdJAZrQeG_1diLm0",
+        authDomain: "editai-base.firebaseapp.com",
+        databaseURL: "https://editai-base.firebaseio.com",
+        storageBucket: "editai-base.appspot.com",
+        messagingSenderId: "861660898535"
+    };
+
+    function init() {
         firebase.initializeApp(config);
         routes();
     }
@@ -55,7 +63,7 @@ window.addEventListener('load', function() {
         });
     });
 
-    var show_profile_info = function(profile) {
+    function show_profile_info(profile) {
         var avatar = document.getElementById('avatar');
 
         if (avatar) {
@@ -68,14 +76,14 @@ window.addEventListener('load', function() {
 
     };
 
-    var logout = function() {
+    function logout() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
         window.location.href = "/";
         document.location.href = "/";
     };
 
-    var routes = function() {
+    function routes() {
         var id_token = localStorage.getItem('id_token');
         var current_location = window.location.pathname;
 
@@ -88,6 +96,7 @@ window.addEventListener('load', function() {
                     break;
                 case "/console.html":
                     retrieve_profile();
+                    retrieveProjects(profile);
                     break;
                 case "/":
                     window.location.href = '/console.html';
@@ -101,7 +110,7 @@ window.addEventListener('load', function() {
         }
     };
 
-    var retrieve_profile = function() {
+    function retrieve_profile() {
         var id_token = localStorage.getItem('id_token');
         if (id_token) {
             lock.getProfile(id_token, function(err, profile) {
@@ -114,15 +123,7 @@ window.addEventListener('load', function() {
         }
     };
 
-    var config = {
-        apiKey: "AIzaSyA9ouh_oaGmBpGsjc4wdJAZrQeG_1diLm0",
-        authDomain: "editai-base.firebaseapp.com",
-        databaseURL: "https://editai-base.firebaseio.com",
-        storageBucket: "editai-base.appspot.com",
-        messagingSenderId: "861660898535"
-    };
-
-    var writeNewUser = function(email, name, id) {
+    function writeNewUser(email, name, id) {
         firebase.database().ref().child('users').child(id).set({
             username: name,
             email: email,
@@ -130,7 +131,7 @@ window.addEventListener('load', function() {
         });
     };
 
-    var addNewProject = function(title, description, user, email) {
+    function addNewProject(title, description, user, email) {
         var newPostKey = firebase.database().ref().child('projects').child(user).push().key;
 
         var postData = {
@@ -143,8 +144,22 @@ window.addEventListener('load', function() {
         firebase.database().ref('projects/' + user + '/' + newPostKey).set(postData);
     };
 
-    var retrieveProjects = function() {
+    function retrieveProjects(profile) {
+        var commentsRef = firebase.database().ref().child('projects').child(profile.user_id);
+        commentsRef.on('child_added', function(data) {
+            console.log(data.val().title + " - " + data.val().desc);
+            addCommentElement(data.key, data.val().title, data.val().desc);
+        });
+    }
 
+    function addCommentElement(id, title, desc) {
+        var comment = document.createElement('a');
+        comment.classList.add('list-group-item');
+        comment.innerHTML = '<h4 class="list-group-item-heading"></h4><p class="list-group-item-text"></p>';
+        comment.getElementsByClassName('list-group-item-heading')[0].innerText = title;
+        comment.getElementsByClassName('list-group-item-text')[0].innerText = desc;
+
+        $("#list").append(comment);
     }
 
     $('#video-form').submit(function(e) {
