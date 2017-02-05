@@ -88,7 +88,6 @@ window.addEventListener('load', function() {
                     break;
                 case "/console.html":
                     retrieve_profile();
-                    addNewProject('Teste', 'djaklsjdkalsjdklasjdlksjdkljdlkasjdlksjdlkasjd', profile.user_id, profile.email);
                     break;
                 case "/":
                     window.location.href = '/console.html';
@@ -144,9 +143,25 @@ window.addEventListener('load', function() {
         firebase.database().ref('projects/' + user + '/' + newPostKey).set(postData);
     };
 
-    // var retrieveProjects = function() {
-        
-    // }
+    var retrieveProjects = function() {
+
+    }
+
+    $('#video-form').submit(function(e) {
+        e.preventDefault();
+        var id_token = localStorage.getItem('id_token');
+        if (id_token) {
+            lock.getProfile(id_token, function(err, profile) {
+                if (err) {
+                    return alert('There was an error getting the profile while trying to save new PROJECT: ' + err.message);
+                } else {
+                    var title = localStorage.getItem('proj-name');
+                    var desc = localStorage.getItem('proj-comment');
+                    addNewProject(title, desc, profile.user_id, profile.email);
+                }
+            });
+        }
+    });
 
     init();
 });
