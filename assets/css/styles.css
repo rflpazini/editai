@@ -65,15 +65,21 @@ section {
 
 /*background section*/
 .background .col-md-6 p {
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: 200;
 }
 
-.col-md-6 j{
-  font-size: 3.5em;
+.col-md-6 .price{
+  font-size: 1em;
   color:#fff;
+  text-decoration: line-through;
 }
-
+.col-md-6 .descont {
+    font-size: 2em;
+}
+.col-md-6 a {
+    text-transform: uppercase;
+}
 
 /*Second section*/
 
