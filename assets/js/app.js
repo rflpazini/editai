@@ -144,9 +144,9 @@ window.addEventListener('load', function() {
         firebase.database().ref('projects/' + user + '/' + newPostKey).set(postData);
     };
 
-    var retrieveProjects = function() {
+    // var retrieveProjects = function() {
         
-    }
+    // }
 
     init();
 });
